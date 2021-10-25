@@ -15,7 +15,7 @@ See you soon!
 Hi! I'm Carlos, and this is my web page. Here you can see some stuff I've done.
 
 ## Table of contents
-1. [About me]()
+1. [About me](about_me/about_me.html)
 2. [Publications](publications/index.html)
 3. [MSc thesis](TFs/index.html)
 

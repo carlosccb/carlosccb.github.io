@@ -14,6 +14,6 @@ See you soon!
 
 
 ## Table of contents
-1. About me
-2. Publications
-3. MSc thesis
+1. [About me]()
+2. [Publications](publications/index.md)
+3. [MSc thesis](TFs/index.md)

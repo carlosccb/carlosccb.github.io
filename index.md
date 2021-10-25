@@ -12,7 +12,7 @@ I will populate this page with stuff later on. Just for now I've added a [new fi
 See you soon!
 --->
 
-Hi I'm Carlos, and this is my web page. Here you can see some stuff I've done.
+Hi! I'm Carlos, and this is my web page. Here you can see some stuff I've done.
 
 ## Table of contents
 1. [About me]()

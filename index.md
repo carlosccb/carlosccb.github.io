@@ -14,7 +14,7 @@ See you soon!
 
 Hi! I'm Carlos, and this is my web page. I'm a Data Scientist. Here you can see some stuff I've done. If you want to know more about me you can learn more about me in the [about me](about_me/about_me.html) section.
 
-This has been created mostly to showcase my professional profile for possible work-related or professional connections. If you're interested hit me up at my [github page](https://github.com/carlosccb).
+This has been created mostly to showcase my professional profile and some projects that I've worked on, so it's mostly for work-related or professional stuff. If you're interested hit me up at my [github page](https://github.com/carlosccb). <!---or on [linkedin]().--->
 
 ## Table of contents
 1. [About me](about_me/about_me.html)

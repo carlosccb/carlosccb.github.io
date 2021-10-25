@@ -2,3 +2,6 @@ title: Carlos CB
 description: This is my website, built to show some of my work and personal projects
 
 theme: jekyll-theme-minimal
+
+encoding: utf-8
+timezone: Europe/Madrid

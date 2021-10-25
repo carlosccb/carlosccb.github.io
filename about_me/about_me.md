@@ -3,7 +3,7 @@ I'm a Data Scientist. I studied Computer Science at Universidad de Córdoba (UCO
 I've worked primarily with python and R. Some of the libraries that I use most days are:
 * NumPy
 * Pandas
-* sklearn
+* scikit-learn
 * ggplot
 * seaborn, matplotlib
 * tidyverse
@@ -13,4 +13,4 @@ I've also worked with Deep Learning libraries such as:
 * tensorflow
 * PyTorch
 
-From college I also know C and C++, and although I quite like the languages (seriously, I do) I do not use them often now and I'm a little rusty.
+From college I also know C and C++, and although I quite like the languages (seriously, I do) I do not use them often now and I'm a little rusty. I also am proficient in bash. I love to use the CL for everything that I can in Linux and macOS, which are my main OSs. Thanks to my college background I'm proficient in programming and have a solid background in maths, mainly linear algebra and statistics, which are the building blocks of ML.

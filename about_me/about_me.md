@@ -1,8 +1,8 @@
 I'm a Data Scientist. I studied Computer Science at Universidad de Córdoba (UCO) obtaining a BSc, and then got a MSc in Data Science at Universidad de Granada (UGR). I started working as a research assistant in 2018 while developing my BSc thesis. This same thesis was used for my MSc where it got improved with new methods and cost functions for training. All of this will be (is further explained) on []().
 
 I've worked primarily with python and R. Some of the libraries that I use most days are:
-* Pandas
 * NumPy
+* Pandas
 * sklearn
 * ggplot
 * seaborn, matplotlib

@@ -12,7 +12,9 @@ I will populate this page with stuff later on. Just for now I've added a [new fi
 See you soon!
 --->
 
-Hi! I'm Carlos, and this is my web page. Here you can see some stuff I've done.
+Hi! I'm Carlos, and this is my web page. I'm a Data Scientist. Here you can see some stuff I've done. If you want to know more about me you can learn more about me in the [about me](about_me/about_me.html) section.
+
+This has been created mostly to showcase my professional profile for possible work-related or professional connections. If you're interested hit me up at my [github page](https://github.com/carlosccb).
 
 ## Table of contents
 1. [About me](about_me/about_me.html)

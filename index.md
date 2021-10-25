@@ -13,8 +13,8 @@ See you soon!
 
 ## Table of contents
 1. [About me]()
-2. [Publications](publications/index.md)
-3. [MSc thesis](TFs/index.md)
+2. [Publications](publications/index.html)
+3. [MSc thesis](TFs/index.html)
 
 <!---
 Para mejorar esto mirar lo que viene en:

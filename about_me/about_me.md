@@ -6,6 +6,7 @@ I've worked primarily with python and R. Some of the libraries that I use most d
 * sklearn
 * ggplot
 * seaborn, matplotlib
+* tidyverse
 
 I've also worked with Deep Learning libraries such as:
 * keras

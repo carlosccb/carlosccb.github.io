@@ -2,8 +2,6 @@
 layout: default
 ---
 
-
-
 # Welcome to my github pages!
 
 This is just a test to let it up and running just before I leave.
@@ -17,3 +15,8 @@ See you soon!
 1. [About me]()
 2. [Publications](publications/index.md)
 3. [MSc thesis](TFs/index.md)
+
+<!---
+Para mejorar esto mirar lo que viene en:
+  https://github.com/pages-themes/minimal
+ --->

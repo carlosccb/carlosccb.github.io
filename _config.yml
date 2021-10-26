@@ -1,8 +1,11 @@
 title: Carlos CB
-description: This is my website, built to show some of my work and personal projects.
+description: Welcome to my webpage! #This is my website, built to show some of my work and personal projects.
 #logo: /assets/img/profile_pic.jpg
 
 theme: jekyll-theme-minimal
 
 encoding: utf-8
 timezone: Europe/Madrid
+
+plugins:
+  - "jekyll-github-metadata"

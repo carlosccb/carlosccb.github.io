@@ -9,13 +9,14 @@
     <style>
       .round_logo {
         border-radius: 50%;
-        height: 250px;
-        width:  250px;
+        height: 150px;
+        width:  150px;
         /*center*/
-        display: block;
+/*        display: block;
         margin-left: auto;
-        margin-right: auto;
+        margin-right: auto;*/
       }
+
     </style>
 
 {% seo %}
@@ -34,7 +35,11 @@
       <!-- Aunqu esto también se podría dejar arriba del todo -->
       <header>
 
-        <!--  TODO:  Center name so it's underneath picture-->
+        <!--
+        TODO: Center name so it's underneath picture
+              As it's not centered, it looks better smaller (150px vs 250px) and adjusted to the left
+            it might look better when everything's centered, but for the moment it's going to remain like this
+        -->
         {% if site.logo %}
               <img class="round_logo" src="{{site.logo | relative_url}}" alt="Logo" /> 
         {% endif %}

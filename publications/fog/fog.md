@@ -16,3 +16,7 @@ For this task two main approaches can be taken, namely:
 2. Predict the level of visibility according to [...]
 
 In a machine learning context, 1 is a regression problem and 2 is a classification problem. Furthermore, 2 can be also treated as a ordinal classification problem.
+
+{:refdef: style="text-align: center;"}
+![Page under construction](/assets/img/under-construction-sign.jpg){:width="10%" :align="center"}
+{: refdef}

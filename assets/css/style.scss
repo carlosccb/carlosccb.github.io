@@ -2,3 +2,38 @@
 ---
 
 @import "jekyll-theme-minimal";
+
+/* This works, but would apply to all images, so it's not right */
+/*img {
+	max-width: 100%;
+	border-radius: 50%;
+}*/
+
+/*
+Nothing of this works
+
+*/
+
+/* https://www.w3schools.com/howto/howto_css_rounded_images.asp */
+/* https://stackoverflow.com/a/28701009 */
+/*.circular_image {
+	max-width: 100%;
+	border-radius: 50%;
+}
+
+.circular_image img{
+  width:100%;
+}*/
+
+/*.circular_image{
+ width: 200px;
+ height: 200px;
+ background-size: cover;
+ display: block;
+ border-top-left-radius: 100px;
+ -webkit-border-top-left-radius: 100px;
+ -moz-border-top-left-radius: 100px;
+ border-bottom-right-radius: 100px;
+ -webkit-border-bottom-right-radius: 100px;
+ -moz-border-bottom-right-radius: 100px;
+}*/

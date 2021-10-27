@@ -1,7 +1,7 @@
 ---
 layout: page_centered
-#title: About me
 permalink: "/publications"
+title: Publications
 ---
 
 ### Publications

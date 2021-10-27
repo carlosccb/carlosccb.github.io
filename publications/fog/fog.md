@@ -1,7 +1,7 @@
 ---
 layout: page_centered
-#title: About me
 permalink: "/publications/fog"
+title: "Publications: Fog"
 ---
 
 #### Machine Learning Regression and Classification Methods for Fog Events Prediction: A Performance-based Study

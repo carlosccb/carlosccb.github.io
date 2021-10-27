@@ -1,7 +1,7 @@
 ---
 layout: page_centered
-#title: About me
 permalink: "/TFs"
+title: MSc thesis
 ---
 
 ### MSc thesis

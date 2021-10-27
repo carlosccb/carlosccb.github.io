@@ -1,7 +1,7 @@
 ---
 layout: page_centered
-#title: About me
 permalink: "/publications/embalse"
+title: "Publications: Water Reservoir"
 ---
 
 ####  Analysis and Prediction of Dammed Water Level in a Hydropower Reservoir Using Machine Learning and Persistence-Based Techniques 

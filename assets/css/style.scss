@@ -2,3 +2,51 @@
 ---
 
 @import "jekyll-theme-minimal";
+
+/*https://www.w3schools.com/howto/howto_css_rounded_images.asp*/
+.round_logo {
+        border-radius: 50%;
+        height: 150px;
+        width:  150px;
+        /*center*/
+        /*display: block;
+        margin-left: auto;
+        margin-right: auto;*/
+}
+
+#sidebar-buttons {
+  color: #000000;
+}
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-content: center;
+}
+
+.btn-social {
+    display: inline-block;
+    /*display: flex;*/
+
+    /*border: 2px solid #fff;
+    border-radius: 100%;*/
+    text-align: center;
+    width: 2.5em;
+    height: 2.5em;
+    font-size: 2em;
+    line-height: 2.5em;
+}
+
+.btn-outline {
+    margin-top: 3vh;
+    border: solid 2px #fff;
+    font-size: 1em;
+    background: #fff;
+}
+
+a.btn-outline {
+    color: inherit;
+}

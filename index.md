@@ -3,7 +3,7 @@ layout: page
 title: Welcome! # to my github pages!
 ---
 
-# Welcome to my github pages!
+# Welcome to my github page!
 
 
 Hi! I'm Carlos, and this is my web page. I'm a Data Scientist. Here you can find some projects that I've work on over the last few years.  If you want to know more about me you can head to the [about me](about-me) section.

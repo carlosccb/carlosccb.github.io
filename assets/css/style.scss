@@ -14,7 +14,6 @@
         margin-right: auto;*/
 }
 
-/*TODO: Get icons closer to the previous text. Tried but couldn't achieve. I think it's something related to flexbox*/
 #sidebar-buttons {
   /*color: #000000;*/
 }
@@ -30,10 +29,10 @@
 
 .btn-social {
     display: inline-block;
-    /*display: flex;*/
+    display: flex;
 
-    /*border: 2px solid #fff;
-    border-radius: 100%;*/
+    border: 2px solid #fff;
+    border-radius: 100%;
     text-align: center;
     width: 2.5em;
     height: 2.5em;
@@ -42,9 +41,9 @@
 }
 
 .btn-outline {
-    margin-top: 3vh;
+    /*margin-top: 3vh;*/
     border: solid 2px #fff;
-    font-size: 1em;
+    font-size: 1.25em;
     background: #fff;
 }
 

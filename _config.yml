@@ -4,6 +4,17 @@ logo: /assets/img/profile_pic.jpg
 
 theme: jekyll-theme-minimal
 
+author:
+  name:           'Carlos CB'
+  email:          'carlos.ccb.gh@gmail.com'
+  url:            carlosccb.github.io
+  github:         'https://github.com/carlosccb'
+  linkedin:       'https://www.linkedin.com/in/carloscastillob'
+  lastfm:         'https://www.last.fm/user/carloscb'
+  publications:
+    water_reservoir:  'https://www.mdpi.com/2073-4441/12/6/1528'
+    for:              ''
+
 encoding: utf-8
 timezone: Europe/Madrid
 

@@ -5,28 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- TODO: Move all of this to corresponding css file -->
     <!-- parece ser que esta es la solución a lo que quiero hacer:
         https://stackoverflow.com/a/32723763
     -->
     <!-- According to the previous link it should be done this way, including: page_centered-head.html -->
+    <!-- Sources for being able to modify tables made in md with css (width: 50%).
+      There're, at least, two alternatives for this:
+      1. Doesn't work => https://stackoverflow.com/a/36215330
+      2. Doesn't work => https://about.gitlab.com/handbook/markdown-guide/#tables
+      3. WORKS!!      => https://idratherbewriting.com/documentation-theme-jekyll/mydoc_tables.html#htmltables
+     -->
+    <style>
+      /**/
+      .md_table table {
+        width: 680px;/*width: 60%;*/
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
 
-
-<!-- Sources for being able to modify tables made in md with css (width: 50%).
-  There're, at least, two alternatives for this:
-  1. Doesn't work => https://stackoverflow.com/a/36215330
-  2. Doesn't work => https://about.gitlab.com/handbook/markdown-guide/#tables
-  3. WORKS!!      => https://idratherbewriting.com/documentation-theme-jekyll/mydoc_tables.html#htmltables
- -->
-<style>
-  /**/
-  .md_table table {
-    width: 680px;/*width: 60%;*/
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
-{% seo %}
+    {% seo %}
     <!-- <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}"> -->
     <link rel="stylesheet" href="{{ "/assets/css/style-page_centered.css?v=" | append: site.github.build_revision | relative_url }}">
 
@@ -34,6 +33,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
     {% include head-custom.html %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
 

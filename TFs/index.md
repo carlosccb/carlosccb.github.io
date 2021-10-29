@@ -14,4 +14,4 @@ The code for my BSc thesis is [available on GitHub](https://github.com/carlosccb
 ![Page under construction](/assets/img/under-construction-sign.jpg){:width="7%" :align="center"}
 {: refdef}
 
-Right now ({{ 'now' | date: '%Y-%m-%d' }}) the web is pretty much under construction. I dedicate as much free time as I can. Sorry for the inconvenience.
+Right now ({{ 'now' | date: '%Y-%m-%d' }}) the web is pretty much under construction. I dedicate as much free time as I can but I can't get everything up here as soon as I'd like to. Sorry for the inconvenience.

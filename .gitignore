@@ -1,2 +1,4 @@
 _site/
 .jekyll-cache/
+# Ignore Gemfile.lock, even if github doesn't use it to deploy, I don't want to share this file across OSs
+Gemfile.lock

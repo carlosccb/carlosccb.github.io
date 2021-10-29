@@ -1,10 +1,10 @@
 ---
-layout: page_centered
+layout: page #page_centered
 permalink: "/publications"
 title: Publications
 ---
 
-### Publications
+## Publications
 
 <!-- Here is a little introduction to my publications which were published during my two years as a PhD student. If you want to access the full publications they're linked inside each page. -->
 

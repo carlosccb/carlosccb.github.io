@@ -13,9 +13,11 @@
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 
-body { background-color: #fff; padding: 50px; font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #727272; font-weight: 400; }
-h1, h2, h3, h4, h5, h6 { color: #222; margin: 0 0 20px; }
-p, ul, ol, table, pre, dl { margin: 0 0 20px; }
+body { background-color: #fff; padding: 20px; font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #727272; font-weight: 400; }
+h1 { color: #222; margin: 0 0 15px; }
+h2, h3 { color: #222; margin: 0 0 10px; }
+h4, h5, h6 { color: #222; margin: 0 0 5px; }
+p, ul, ol, table, pre, dl { margin: 0 0 15px; }
 h1 { line-height: 2; }
 h2, h3 { line-height: 1.1; }
 h1 { font-size: 28px; }
@@ -38,6 +40,7 @@ kbd { background-color: #fafbfc; border: 1px solid #c6cbd1; border-bottom-color:
 
 strong { color: #222; font-weight: 700; }
 
+/* TODO: Cambiar para que se quede el texto más centrado en la pantalla y no tan escorado a la dcha */
 section { width: 1000px; float: left; padding-bottom: 50px; }
 small { font-size: 11px; }
 hr { border: 0; background: #e5e5e5; height: 1px; margin: 0 0 20px; }
@@ -77,11 +80,11 @@ h1:after {
 /* https://www.w3schools.com/howto/howto_css_style_header.asp */
 header {
 	text-align: left;
-
 	width: 300px;
 	float: left;
 	/*position: fixed;*/
 	-webkit-font-smoothing: subpixel-antialiased;
+	/*margin: 0 0 10px 0;*/
 }
 
 /*Parece ser que esta es la solución a lo que quiero hacer:

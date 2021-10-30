@@ -10,7 +10,7 @@ Here I explain in a little more detail my experience as a PhD student and univer
 
 #### Education
 
-I studied _Computer Science_ at Universidad de Córdoba (UCO) obtaining a BSc in 2018, and then got a _Data Science MSc_ at Universidad de Granada (UGR) in 2019. I started working as a research assistant at UCO in 2018 while working on my BSc thesis. This same thesis was used as the basis for my MSc thesis, where it got improvements such as new activations, and new ordinal loss functions for training. 
+I studied _Computer Science_ at Universidad de Córdoba (UCO) obtaining a BSc in 2018, and then got a _Data Science MSc_ at Universidad de Granada (UGR) in 2019. I started working as a research assistant at UCO in 2018 while working on my BSc thesis. This same thesis was used as the basis for my MSc thesis, where it got improvements to account for the ordinality in data. 
 <!-- This work will be further explained on the [MSc thesis section](TFs), right now the web is pretty much under construction and being currently ({{ 'now' | date: '%Y-%m-%d' }}) built. -->
 During my BSc I took all the machine learning classes available, where I got a very sturdy foundation on the mathematical and statistical basis of ML. On my MSc I took electives that taught: big data, recommendation systems, time series, computer vision, non-supervised learning and anomaly detection.
 

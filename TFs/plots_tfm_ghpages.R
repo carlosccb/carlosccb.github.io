@@ -1,7 +1,7 @@
 library(tidyverse)
 library(reshape2)
 
-PLOTS_PATH <- "~/Documents/Codes/carlosccb.github.io/TFs/figs/"
+PLOTS_PATH <- "~/Documents/Codes/carlosccb.github.io/tfs/figs/"
 
 df_tfm_res_table <- read_csv("Documents/Codes/carlosccb.github.io/_includes/table_res_tfm.csv")
 
@@ -95,8 +95,8 @@ ggplot(df_tfm_res_table_melted, aes(x=Config, y=value, fill=Config)) +
 ggsave(file="TFM_comp_Complete_grid.png", device="png", path=PLOTS_PATH, scale=1.5, dpi=320)#, units="px")#, width=1290, height=1080)
 
 ggplot(df_tfm_res_table_melted, aes(x=variable, y=value,  color=Config)) +
-  geom_point() +
-  geom_line(aes(group =Config)) +
+  geom_point(size=3.5) +
+  geom_line(aes(group =Config), size=0.75) +
   theme_bw() +
   theme(axis.title.x=element_blank(),
         axis.title.y=element_blank(),

@@ -1,6 +1,6 @@
 ---
 layout: page_centered #page
-permalink: "/TFs"
+permalink: "/tfs"
 title: MSc thesis
 ---
 
@@ -53,7 +53,7 @@ __Table of contents__
 
 This work was a new approach for ordinal classification problems using deep learning models, based on the use of ordinal loss functions and probability density functions, which took advantage of the ordinality information that the labels hold. The method on which this approach was based uses unimodal probability distributions (based on the work of [Beckham et al.](http://proceedings.mlr.press/v70/beckham17a.html)) to transform the output distribution given by a deep neural network. Given that the model does not use the distance of the errors in the training process to modify its weights and that the ordinality is only considered in the distribution layer, we improved this approach by adding ordinal functions.
 
-With this approach, we present a comparative study of the results obtained when different ordinal loss functions are used in conjunction with unimodal probability distributions for the network output, when non-ordinal loss functions are used on a baseline model and when a model takes into account ordinality only with an unimodal probability function. For the comparison, an ordinal dataset is considered. This dataset, [Adience](https://talhassner.github.io/home/projects/Adience/Adience-data.html) contains images of faces, which are in the public domain, with a label indicating a range of ages.
+With this approach, we present a comparative study of the results obtained when different ordinal loss functions are used in conjunction with unimodal probability distributions for the network output, when non-ordinal loss functions are used on a baseline model and when a model takes into account ordinality only with an unimodal probability function. For the comparison, an ordinal dataset is considered. This dataset, [Adience](https://talhassner.github.io/home/projects/Adience/Adience-data.html), contains images of faces, which are in the public domain, with a label indicating a range of ages.
 
 For this study we selected two loss functions previously presented in the literature, QWK, Quadratic Weighted Kappa, and EMD, Earth Mover’s Distance, and a new proposal, an ordinal loss function based on the MSE, Mean Squared Error. From this proposed loss function, two alternatives are derived depending on the weighting of the costs, one with an absolute value weighting, named WMSE, Weighted MSE, and another one with a quadratic weighting, QWMSE, Quadratic Weighted MSE.
 
@@ -79,7 +79,7 @@ In the following figure you can see the same problem treated as a nominal and or
 <!-- Nominal vs Ordinal fig -->
 {:refdef: style="text-align: center;"}
 <!-- ![](https://drive.google.com/uc?export=view&id=1RGQl7g7ZeU8KOGkQMGZ5ISi5QjhdseUi){:width="40%" :align="center"} -->
-![Nominal vs Ordinal figure](/TFs/figs/nominal_vs_ordinal_new_.png){:width="40%" :align="center"}
+![Nominal vs Ordinal figure](/tfs/figs/nominal_vs_ordinal_new_.png){:width="40%" :align="center"}
 {:refdef}
 <!-- =============================================================================================================== -->
 
@@ -106,7 +106,7 @@ So, what's an unimodal distribution?, you might wonder. It's a probability distr
 <!-- Different Prob Distributions -->
 {:refdef: style="text-align: center;"}
 <!-- ![](https://drive.google.com/uc?export=view&id=1Rd1PZFw0ZHXSDiqYGr8Gsviqqp2JLXRp){:width="30%" :align="center"} -->
-![Different Prob Distributions](/TFs/figs/unimodal_vs_multimodal.png){:width="30%" :align="center"}
+![Different Prob Distributions](/tfs/figs/unimodal_vs_multimodal.png){:width="30%" :align="center"}
 {:refdef}
 <!-- =============================================================================================================== -->
 
@@ -190,7 +190,7 @@ The same data of the table put in a barplot is shown bellow. It can be seen that
 <!-- Google Drive fig -->
 <!-- ![](https://drive.google.com/uc?export=view&id=1sYJN9n93wN8f6-JMjjPxr9LojTxbL_v2){:width="65%" :align="center"} -->
 <!-- Local fig -->
-![Complete metrics comparison in grid format](/TFs/figs/TFM_comp_Complete_grid.png){:width="65%" :align="center"}
+![Complete metrics comparison in grid format](/tfs/figs/TFM_comp_Complete_grid.png){:width="65%" :align="center"}
 <!-- Comparación en cuadrantes (2x2) -->
 <!-- ![](https://drive.google.com/uc?export=view&id=1_22vCG8_Zbo1mS9VqI0R_Fko9vY_pVtI){:width="60%" :align="center"} -->
 {:refdef}
@@ -201,7 +201,7 @@ In the following figure the difference between evaluating the training process w
 
 | Train Accuracy  | Train QWK       | Validation QWK  |
 | :-------------: | :-------------: | :-------------: |
-| ![Comparison of training accuracy](/TFs/figs/comp_train_acc.png){:width="90%" :align="center"} | ![Comparison of training QWK](/TFs/figs/comp_train_qwk.png){:width="90%" :align="center"} | ![Comparison of validation QWK](/TFs/figs/comp_val_qwk.png){:width="90%" :align="center"} |
+| ![Comparison of training accuracy](/tfs/figs/comp_train_acc.png){:width="90%" :align="center"} | ![Comparison of training QWK](/tfs/figs/comp_train_qwk.png){:width="90%" :align="center"} | ![Comparison of validation QWK](/tfs/figs/comp_val_qwk.png){:width="90%" :align="center"} |
 
 
 <!--
@@ -212,7 +212,7 @@ As shown in the figure bellow, the baseline model trained with cross entropy und
 
 
 {:refdef: style="text-align: center;"}
-![Comparison of metrics](/TFs/figs/TFM_comp_Lines.png){:width="50%" :align="center"}
+![Comparison of metrics](/tfs/figs/TFM_comp_Lines.png){:width="50%" :align="center"}
 {:refdef}
 
 

@@ -11,12 +11,12 @@ Here I explain in a little more detail my experience as a PhD student and univer
 #### Education
 
 I studied _Computer Science_ at Universidad de Córdoba (UCO) obtaining a BSc in 2018, and then got a _Data Science MSc_ at Universidad de Granada (UGR) in 2019. I started working as a research assistant at UCO in 2018 while working on my BSc thesis. This same thesis was used as the basis for my MSc thesis, where it got improvements to account for the ordinality in data. 
-<!-- This work will be further explained on the [MSc thesis section](TFs), right now the web is pretty much under construction and being currently ({{ 'now' | date: '%Y-%m-%d' }}) built. -->
+<!-- This work will be further explained on the [MSc thesis section](tfs), right now the web is pretty much under construction and being currently ({{ 'now' | date: '%Y-%m-%d' }}) built. -->
 During my BSc I took all the machine learning classes available, where I got a very sturdy foundation on the mathematical and statistical basis of ML. On my MSc I took electives that taught: big data, recommendation systems, time series, computer vision, non-supervised learning and anomaly detection.
 
 #### Work and research experience
 
-As mentioned earlier, I started working as a research assistant in early 2018 while finishing my BSc thesis in which I used ordinal classification with a ResNet model to predict the age of people from face pictures. I then continued this work on my [MSc thesis](TFs) adding new ordinal ordinal loss functions among other improvements.
+As mentioned earlier, I started working as a research assistant in early 2018 while finishing my BSc thesis in which I used ordinal classification with a ResNet model to predict the age of people from face pictures. I then continued this work on my [MSc thesis](tfs) adding new ordinal ordinal loss functions among other improvements.
 
 I pursued a PhD to continue my research on Deep Learning methods. From late 2019 to late 2021 I was a PhD student at Universidad de Alcalá de Henares (UAH). During this time my main research line was to apply ML and DL models to meteorological problems for tasks such as:
 * Predicting the availability of resources and the capability for energy production in the future with resources like water stored in reservoirs

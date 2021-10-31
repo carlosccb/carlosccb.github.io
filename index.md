@@ -14,7 +14,7 @@ This site has been created mostly to showcase my professional profile and some p
 ## Table of contents
 1. [About me](about-me)
 2. [Publications](publications)
-3. [MSc thesis](TFs)
+3. [MSc thesis](tfs)
 <!-- 4. [Repositories](/repositories) -->
 
 <!---

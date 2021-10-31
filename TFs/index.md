@@ -17,6 +17,36 @@ Right now ({{ 'now' | date: '%Y-%m-%d' }}) the web is pretty much under construc
 {: refdef}
  -->
 
+__Table of contents__
+<!-- * ToC
+{:toc} -->
+
+<ul id="markdown-toc">
+  <li><a href="#comparative-study-of-different-loss-functions-for-deep-neural-networks-on-ordinal-classification-problems" id="markdown-toc-comparative-study-of-different-loss-functions-for-deep-neural-networks-on-ordinal-classification-problems">Comparative Study of Different Loss Functions for Deep Neural Networks on Ordinal Classification Problems</a>    <ul>
+      <li><a href="#abstract" id="markdown-toc-abstract">Abstract</a></li>
+      <li><a href="#ordinal-classification" id="markdown-toc-ordinal-classification">Ordinal Classification</a>        <ul>
+          <li><a href="#unimodal-distributions" id="markdown-toc-unimodal-distributions">Unimodal distributions</a></li>
+          <li><a href="#evaluation-metrics" id="markdown-toc-evaluation-metrics">Evaluation Metrics</a>            <ul>
+              <li><a href="#accuracy" id="markdown-toc-accuracy">Accuracy:</a></li>
+              <li><a href="#top-k-accuracy" id="markdown-toc-top-k-accuracy">Top-k Accuracy:</a></li>
+              <li><a href="#quadratic-weighted-kappa" id="markdown-toc-quadratic-weighted-kappa">Quadratic Weighted Kappa:</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#deep-learning-for-ordinal-classification" id="markdown-toc-deep-learning-for-ordinal-classification">Deep Learning for Ordinal Classification</a>
+      	<ul>
+          <li><a href="#ordinal-loss-functions" id="markdown-toc-ordinal-loss-functions">Ordinal Loss Functions</a></li>
+        </ul>
+      </li>
+      <li><a href="#experimental-results" id="markdown-toc-experimental-results">Experimental Results</a></li>
+      <li><a href="#conclusions" id="markdown-toc-conclusions">Conclusions</a></li>
+      <li><a href="#the-end" id="markdown-toc-the-end">The End</a></li>
+    </ul>
+  </li>
+</ul>
+
+
 ## Comparative Study of Different Loss Functions for Deep Neural Networks on Ordinal Classification Problems
 
 ### Abstract
@@ -45,9 +75,13 @@ Some examples of ordinal classification are:
 
 In the following figure you can see the same problem treated as a nominal and ordinal classification problem. On the left we have two classes, <span style="color:blue">healthy</span>, or <span style="color:red">ill</span>. If we transform the problem adding ordinality, the we have: <span style="color:green">_healthy_</span>; and in the ill class we have: <span style="color:blue">common</span> or <span style="color:red">severe</span>.
 
+<!-- =============================================================================================================== -->
+<!-- Nominal vs Ordinal fig -->
 {:refdef: style="text-align: center;"}
-![](https://drive.google.com/uc?export=view&id=1RGQl7g7ZeU8KOGkQMGZ5ISi5QjhdseUi){:width="40%" :align="center"}
+<!-- ![](https://drive.google.com/uc?export=view&id=1RGQl7g7ZeU8KOGkQMGZ5ISi5QjhdseUi){:width="40%" :align="center"} -->
+![Nominal vs Ordinal figure](/TFs/figs/nominal_vs_ordinal_new_.png){:width="40%" :align="center"}
 {:refdef}
+<!-- =============================================================================================================== -->
 
 __How to treat ordinal problems__
 
@@ -68,14 +102,16 @@ The interested reader can find these approaches explained in more detail in the 
 
 So, what's an unimodal distribution?, you might wonder. It's a probability distribution that, as the name implies, only has one mode. Simply put it means that it has one single value that repeats the most often. In the figure bellow it's the distribution to the left. The other distributions have two and three values which are the most common respectively.
 
+<!-- =============================================================================================================== -->
+<!-- Different Prob Distributions -->
 {:refdef: style="text-align: center;"}
-![](https://drive.google.com/uc?export=view&id=1Rd1PZFw0ZHXSDiqYGr8Gsviqqp2JLXRp){:width="25%" :align="center"}
+<!-- ![](https://drive.google.com/uc?export=view&id=1Rd1PZFw0ZHXSDiqYGr8Gsviqqp2JLXRp){:width="30%" :align="center"} -->
+![Different Prob Distributions](/TFs/figs/unimodal_vs_multimodal.png){:width="30%" :align="center"}
 {:refdef}
+<!-- =============================================================================================================== -->
 
+As we want to approximate the logical reasoning of what a person would think when looking at a picture the best option is to force the output of the DNN to be a unimodal probability distribution. As you can see in figure bellow, the distance between classes is very important because nobody would mistake the picture of a baby with a grown man with a beard, right? It would make sense to mistake a baby with a toddler, or a grown man with a young adult or an older person, but not two ages that different. So when using unimodal probabilities distributions you're forcing the net to predict the most likely class and make the probability for each class descend as it gets further from the most likely. Using the figure above, if it were the output of a network predicting the age of young adult from a picture, it easy to see that the most correct distribution would be the first, the second would mean that the network thinks it's either a baby or a older person, which would have to be penalized during training as it doesn't make much sense.
 
-As we want to approximate the logical reasoning of what a person would think when looking at a picture the best option is to force the output of the DNN to be a unimodal probability distribution. As you can see in figure bellow, the distance between classes is very important because nobody would mistake the picture of a baby with a grown man with a beard, right? It makes sens to mistake a baby with a toddler, or a grown man with a young adult or an older person, but not two ages that different. So when using unimodal probabilities distributions you're forcing the net to predict the most likely class and make the probability for each class descend as it gets further from the most likely. Using the figure above, if it were the output of a network predicting the age of young adult from a picture, it easy to see that the most correct distribution would be the first, the second would mean that the network thinks it's either a baby or a older person, which would have to be penalized during training as it doesn't make much sense.
-
-<!-- TODO: Make distribution plot with predictions -->
 
 The following probability distributions were used:
 * Binomial
@@ -83,7 +119,7 @@ The following probability distributions were used:
 * Chi-squared
 * Student's t
 
-Only the first distribution improved the baseline consistently and was clearly better than the other distributions, so that was the one included in the final study.
+Only the first distribution, Binomial, improved the baseline consistently and was clearly better than the other distributions, so that was the one included in the final study.
 
 #### Evaluation Metrics
 
@@ -126,7 +162,10 @@ The loss functions used were:
 
 ### Experimental Results
 
-For the comparison of the performance of the different methods we used a baseline model, which was a ResNet without the ordinal modifications and that "saw" the problem as a nominal classification instead of ordinal and five different combinations of ordinal models. So the configurations used are:
+I'll spare you all the details from the experimental setup, the data partitions, data augmentation, the training parameters, the residual architecture, the convergence graphics and whatnot, and I'll go directly to the results. (Also, congratulations and thank you if you've made it this far, seriously!)
+
+
+For the comparison of the performance of the different methods we used a baseline model, which was a ResNet without the ordinal modifications and that treats the problem as a nominal classification problem instead of an ordinal one, and five different combinations of ordinal models. So the configurations used are:
 1. Baseline, loss: cross entropy
 2. Binomial, loss: cross entropy
 3. Binomial, loss: EMD
@@ -134,36 +173,54 @@ For the comparison of the performance of the different methods we used a baselin
 5. Binomial, loss: wMSE
 6. Binomial, loss: qMSE
 
-I'll spare you all the details from the experimental setup, the data partitions, data augmentation, the training parameters, the convergence graphics and whatnot, and I'll go directly to the results. (Congratulations and thank you if you've made it this far, seriously!)
+The results obtained for the comparison metrics are included in the next table. The rows correspond to the each of the elements in the previous list and the columns are the values for each evaluation metric.
 
-The metrics comparison table:
 
 {% include tfm_results_comparison.html %}
 
 <!-- TODO: Complete -->
+<!-- TODO; Hay que meter las imágenes en el repositorio que si no GDrive a veces (si se entra muchas veces, no carga) -->
+<!-- TODO; Las imágenes de comparación de métricas se podrían hacer de nuevo en ggplot -->
 
-The rows correspond to the elements in the previous list and the columns are the evaluation metrics.
+The same data of the table put in a barplot is shown bellow. It can be seen that (logically) increasing the _k_ parameter in Top-k Accuracy makes the models achieve higher values of accuracy, but it doesn't seem to reflect the performance of the ordinal models with unimodal probability distributions in its output, so a intrinsic ordinal metric is required, like Quadratic Weighted Kappa. With this metric, there's a greater difference between the ordinal models and the (nominal) baseline. The best result is obtained by the model with the quadratic weighted MSE loss function followed by the one that used QWK as the loss function.
+
+<!-- =============================================================================================================== -->
+<!-- Imagen de la comparación completa en grid -->
+{:refdef: style="text-align: center;"}
+<!-- Google Drive fig -->
+<!-- ![](https://drive.google.com/uc?export=view&id=1sYJN9n93wN8f6-JMjjPxr9LojTxbL_v2){:width="65%" :align="center"} -->
+<!-- Local fig -->
+![Complete metrics comparison in grid format](/TFs/figs/TFM_comp_Complete_grid.png){:width="65%" :align="center"}
+<!-- Comparación en cuadrantes (2x2) -->
+<!-- ![](https://drive.google.com/uc?export=view&id=1_22vCG8_Zbo1mS9VqI0R_Fko9vY_pVtI){:width="60%" :align="center"} -->
+{:refdef}
+<!-- =============================================================================================================== -->
+
+
+In the following figure the difference between evaluating the training process with a non-ordinal and an ordinal metric can be seen. In the accuracy figure (left) the baseline model (trained with cross entropy loss) starts to score better values of Accuracy than the rest of the models early on, approximately in epoch 20. This same training, when evaluated with a ordinal metric, QWK, (central figure) paints a very different picture. The baseline model takes longer to converge than the rest of the models, and in the end appears to beat most of them, but in reality, if we watch the QWK validation plot (the one to the right) it turns out that in reality it's overtraining, as its values end as the worst in the validation partition.
+
+| Train Accuracy  | Train QWK       | Validation QWK  |
+| :-------------: | :-------------: | :-------------: |
+| ![Comparison of training accuracy](/TFs/figs/comp_train_acc.png){:width="90%" :align="center"} | ![Comparison of training QWK](/TFs/figs/comp_train_qwk.png){:width="90%" :align="center"} | ![Comparison of validation QWK](/TFs/figs/comp_val_qwk.png){:width="90%" :align="center"} |
+
 
 <!--
-| Accuracy chart  | QWK chart |
-| ------------- | ------------- |
-| {:refdef: style="text-align: center;"} ![](https://drive.google.com/uc?export=view&id=1LZp11FwWgpxCvsgVr-vG5q0woxyutfHE){:width="25%" :align="center"} {:refdef}  | {:refdef: style="text-align: center;"}![](https://drive.google.com/uc?export=view&id=1fJec-a2qXgI70f07Dl1NDObTOOcJIsnZ){:width="25%" :align="center"}{:refdef}  |
+	| ![](https://drive.google.com/uc?export=view&id=1n2TVU87wFced83Pk3-9INlRQXYQ8E-6R){:width="80%" :align="center"} | ![](https://drive.google.com/uc?export=view&id=1SfMVoK8ClTBImjSfZnuYOgzE3WWpaKas){:width="80%" :align="center"} | ![](https://drive.google.com/uc?export=view&id=1qi3tM9hsjYLIkH6HqHfq_aD7XDERr0kt){:width="80%" :align="center"} |
 -->
 
-<!-- {:refdef: style="text-align: center;"} ![](https://drive.google.com/uc?export=view&id=1LZp11FwWgpxCvsgVr-vG5q0woxyutfHE){:width="25%" :align="center"} {:refdef}
-{:refdef: style="text-align: center;"}![](https://drive.google.com/uc?export=view&id=1fJec-a2qXgI70f07Dl1NDObTOOcJIsnZ){:width="25%" :align="center"}{:refdef} -->
+As shown in the figure bellow, the baseline model trained with cross entropy under performs on all metrics with respect to the other models that have some kind of ordinality. In the non-ordinal metrics this difference is not very big but it increases when comparing the results obtained with QWK. The second worse model is the model with the binomial output and without an ordinal loss function. From this we can reason that the models that worked the best were the ones with an unimodal probability distribution and an ordinal loss function.
 
-### Resultados 
 
-<!-- (Esto son las conclusiones)
+{:refdef: style="text-align: center;"}
+![Comparison of metrics](/TFs/figs/TFM_comp_Lines.png){:width="50%" :align="center"}
+{:refdef}
 
-Con los resultados obtenidos en la sección anterior 5, se puede comprobar cómo el uso de modelos adaptados para problemas ordinales mejora en gran medida las predicciones obtenidas, incrementando notablemente el rendimiento alcanzado por un mismo clasificador sobre la misma tarea.
 
-Como se ha demostrado en la sección de resultados 5, utilizando funciones de coste ordinales se previene el sobreaprendizaje del modelo durante el entrenamiento. Esto permite que para un mismo problema se obtengan valores muy superiores de acierto. También se ha hecho patente la necesidad del uso de métricas de evaluación ordinales, ya que las métricas comúnmente utilizadas en tareas de clasificación no ponderan correctamente los errores según la distancia de las clases, lo cual es muy importante.
+### Conclusions 
 
-El uso de métricas ordinales en problemas de esta naturaleza es similar en su importancia al uso de métricas distintas al Accuracy en problemas desbalanceados, donde si el ratio de desequilibrio es demasiado grande, el clasificador puede tener un ratio de acierto cercano al 100 % a pesar de ignorar totalmente la clase minoritaria, que puede ser la más relevante en el problema tratado. Esto sucede por ejemplo en problemas médicos, donde la clase positiva suele ser minoritaria, debido a que existen un mayor número de personas sanas que enfermas.
+With the results obtained and shown in the [last section](#experimental-results), it can be seen that when working with ordinal classification problems, the usage of models adapted to account for the ordinality in the data, both in it's output probability distribution and during the training process with ordinal loss functions, increases notably the performance of a baseline model that treats the problem without taking into consideration the ordinal nature. It can also be seen that using ordinal loss functions prevents overfitting during training, and the need to use the proper metrics to evaluate the problem. Using the proper evaluation metrics when using datasets with an ordinal nature is as important as using metrics to take into consideration underrepresented classes in imbalanced problems, where one may end up with an accuracy of 95% or higher while completely omitting imbalanced classes.
 
-Es interesante hacer notar que esta faceta del aprendizaje automático no es muy conocida fuera del ámbito de la investigación, a pesar de aportar grandes ventajas a un gran número de problemas. Normalmente los problemas de clasificación ordinal suelen ser tratados como problemas de clasificación supervisada nominal, perdiendo potencialmente calidad en los resultados obtenidos. Es importante también mencionar que si este campo no suele ser muy utilizado fuera de la investigación, sus aplicaciones al aprendizaje profundo lo son menos aún, por lo que se considera que el estudio realizado en este trabajo es importante para mostrar, ya no solo las ventajas de utilizar métricas y funciones de coste ordinales, si no evaluar el rendimiento de varias de ellas mediante su comparación directa con el mismo modelo base y el mismo conjunto de datos. -->
+It is worth pointing out that this area of classification is often rarely used outside of academia, even when achieving noteworthy improvements. When treating ordinal problems as nominal classification, an important and intrinsic part of the information included in the data is being omitted, so correctly using all the available information is crucial to improve the predictions. If ordinal classification is often rarely used outside of academia, the usage with Deep Learning model is even rarer, and surely requires future work to improve on this area.
 
 ### The End
 

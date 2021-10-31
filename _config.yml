@@ -20,3 +20,5 @@ timezone: Europe/Madrid
 
 plugins:
   - "jekyll-github-metadata"
+
+markdown: kramdown

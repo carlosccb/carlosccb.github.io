@@ -6,7 +6,7 @@ title: MSc thesis
 
 ## MSc thesis
 
-Here I show what I worked on for my MSc and my BSc thesis ([code available](https://github.com/carlosccb/Ordinal-Clasification-with-Residual-Networks)). Both are presented here as a single thing, but in reality the work was incremental and one continued where the other left off. This work was originally presented in July of 2019.
+Here I show what I worked on for my MSc and my BSc thesis ([source code available](https://github.com/carlosccb/Ordinal-Clasification-with-Residual-Networks)). Both are presented here as a single thing, but in reality the work was incremental and one continued where the other left off. This work was originally presented in July of 2019.
 
 In this page, although abridged, almost everything presented in my MSc thesis is included, and it's quite a lot of text. I would recommend reading (or skimming) the [abstract](#abstract) and then heading to the [experimental results](#experimental-results) and [conclusions](#conclusions) sections to get a general sense of the work.
 
@@ -55,18 +55,19 @@ __Table of contents__
 
 ### Abstract
 
-This work was a new approach for ordinal classification problems using deep learning models. It is based on the use of ordinal loss functions and unimodal probability density functions. The use of unimodal probability distributions is based on the work of [Beckham et al.](http://proceedings.mlr.press/v70/beckham17a.html), and it works by transforming the output distribution given by a deep neural network into an unimodal distribution. Using this set up, the training of the model does not use the distance between classes to calculate the errors during the training process and doesn't modify the weights accordingly, so the ordinality is only considered in the distribution layer. This approach was improved by adding new ordinal loss functions which use the ordinal information that the labels hold.
+This work was a new approach for ordinal classification problems using deep learning models. It is based on the use of ordinal loss functions and unimodal probability density functions. The use of unimodal probability distributions is based on the work of [Beckham et al.](http://proceedings.mlr.press/v70/beckham17a.html), and it works by transforming the output distribution given by a deep neural network into an unimodal distribution. With this set up, during the training process the distance between classes isn't used to calculate the errors in the predictions made by the model and so the weights aren't modify accordingly; the ordinality is only considered in the last layer. This approach was improved by adding new ordinal loss functions that use the ordinal information inherent to the labels during the training process to modify the network's weights.
 
 With this approach, we present a comparative study of the results obtained when:
-1. Regular (non-ordinal) loss functions (cross entropy) are used on a baseline (non-ordinal) model
-2. A model takes into account ordinality only by using an unimodal probability functions
+1. A regular non-ordinal loss function, cross entropy, is used on a baseline non-ordinal model
+2. A model that takes into account the ordinality only by using unimodal probability density functions
 3. Different ordinal loss functions are used in conjunction with unimodal probability distributions for the network output
 
 For the comparison, an ordinal dataset is considered, [Adience](https://talhassner.github.io/home/projects/Adience/Adience-data.html), which contains images of faces <!-- (all of the original pictures are in the public domain) --> with a label indicating a range of ages for the person in the picture. This is the label used for training. To put it briefly, the ordinality in the labels comes from the error being greater when misclassifying a baby (_class 0_) for a grown man (_class 4_) than when misclassifying that same baby as a toddler (_class 1_); or the error being smaller when mistaking an senior (_class 5_) with an elder (_class 6_) than with a teenager (_class 3_). So in ordinal classification these greater errors are penalized with a bigger cost than smaller errors. The difference between labels is also called distance, further labels (baby vs adult) have a greater distance than closer labels (baby vs toddler). The cost of misclassification is calculated with the distance between classes.
 
 For this study we selected two loss functions previously presented in the literature: _QWK_, Quadratic Weighted Kappa, and _EMD_, Earth Mover’s Distance; and made a new proposal, an ordinal loss function based on the _MSE_, Mean Squared Error. For this proposed loss function two alternatives are derived depending on the weighting of the costs, one with an absolute value weighting, named _wMSE_, meaning Weighted MSE, and another one with a quadratic weighting, _qMSE_, which stands for Quadratic Weighted MSE.
 
-The experimentation presented has been made on equal terms for all the configurations tested, using the same partitions of the dataset, namely, training, validation and test. The obtained results show that the application of ordinal loss functions improves the base results obtained in other works using the same dataset, and also considerably improves the baseline models used on this study. We also conclude from the results that the quadratic weighting in the cost of misclassification improves an absolute weighting.
+<!-- The experimentation presented has been made on equal terms for all the configurations tested, using the same partitions of the dataset, namely, training, validation and test.  -->
+The results obtained show that using ordinal loss functions improves the base results obtained in other works that used the same dataset, and also considerably improves the baseline models used on this study. We also conclude from the results that the quadratic weighting in the cost of misclassification improves an absolute weighting.
 
 _(If you are just looking over, I would recommend skipping to [experimental results](#experimental-results).)_
 
@@ -74,7 +75,7 @@ _(If you are just looking over, I would recommend skipping to [experimental resu
 
 ### Ordinal Classification
 
-Ordinal classification is a ML task which tackles a problem where there is an inherent order in the classes to predict. The goal is to leverage the information given by the ordering of the classes to improve the training and inference when new samples are presented. The main trait that sets it apart from nominal classification is that the misclassification error is not the same among any pair of classes, the error increases with the distance among classes.
+Ordinal classification is a ML task which tackles a problem where there is an inherent order in the classes to predict. The goal is to leverage the information given by the ordering of the classes to improve the training and inference when new samples are presented. The main trait that sets it apart from nominal (normal) classification is that the misclassification error is not the same among any pair of classes, the error increases with the distance among classes.
 
 The common characteristics to any ordinal classification problem are: 
 * Discreet classes
@@ -123,7 +124,7 @@ So, what's an unimodal distribution?, you might wonder. It's a probability distr
 {:refdef}
 <!-- =============================================================================================================== -->
 
-As we want to approximate the logical reasoning of what a person would think when looking at a picture the best option is to force the output of the DNN to be a unimodal probability distribution. As you can see in figure bellow, the distance between classes is very important because nobody would mistake the picture of a baby with a grown man with a beard, right? It would make sense to mistake a baby with a toddler, or a grown man with a young adult or an older person, but not two ages that different. So when using unimodal probabilities distributions you're forcing the net to predict the most likely class and make the probability for each class descend as it gets further from the most likely. Using the figure above, if it were the output of a network predicting the age of young adult from a picture, it easy to see that the most correct distribution would be the first, the second would mean that the network thinks it's either a baby or a older person, which would have to be penalized during training as it doesn't make much sense.
+As we want to approximate the logical reasoning of what a person would think when looking at a picture the best option is to force the output of the DNN to be a unimodal probability distribution. As you can imagine, the distance between classes is very important because nobody would mistake the picture of a baby with a grown man with a beard, right? It would make sense to mistake a baby with a toddler, or a grown man with a young adult or an older person, but not two ages that different. So when using unimodal probabilities distributions you're taking the prediction of the net and making the probability for each class descend as it gets further from the predicted one. <!-- TODO: Using the figure above, if it were the output of a network predicting the age of young adult from a picture, it easy to see that the most correct distribution would be the first, the second would mean that the network thinks it's either a baby or a older person, which would have to be penalized during training as it doesn't make much sense. -->
 
 
 The following probability distributions were used:
@@ -173,12 +174,14 @@ The loss functions used were:
 	1. wMSE: uses linear weights to penalize the distance between classes
 	2. qMSE: uses quadratic weights to penalize distance between classes
 
+<!-- Revisado desde aquí -->
+
 ### Experimental Results
 
-I'll spare you all the details from the experimental setup, the data partitions, data augmentation, the training parameters, the residual architecture, the convergence graphics and whatnot, and I'll go directly to the results. (Also, congratulations and thank you if you've made it this far, seriously!)
+I'll spare you all the details from the experimental setup, the data partitions, data augmentation, the training parameters, the residual architecture, the convergence graphics and whatnot, and I'll go directly to the results.
 
 
-For the comparison of the performance of the different methods we used a baseline model, which was a ResNet without the ordinal modifications and that treats the problem as a nominal classification problem instead of an ordinal one, and five different combinations of ordinal models. So the configurations used are:
+For the comparison of the performance of the different methods we used a baseline model, a ResNet without any ordinal modification that treats the problem as a normal classification (also called _nominal classification_) problem, and five different combinations of ordinal models. One ordinal model (2) doesn't use an ordinal loss function, it only uses a binomial distribution for it's output. The rest (3-6) use both methods. So the configurations used are:
 1. Baseline, loss: cross entropy    <!-- 232,125,114  => #e87d72 -->
 2. Binomial, loss: cross entropy    <!-- 179,159,51   => #b39f33 -->
 3. Binomial, loss: EMD              <!-- 83,182,76    => #53b64c -->
@@ -186,7 +189,8 @@ For the comparison of the performance of the different methods we used a baselin
 5. Binomial, loss: QWK              <!-- 108,155,246  => #6c9bf6 -->
 6. Binomial, loss: qMSE             <!-- 214,105,207  => #d669cf -->
 
-The results obtained for the comparison metrics are included in the next table. The rows correspond to the each of the elements in the previous list and the columns are the values for each evaluation metric.
+
+The metrics for the predictions on the test set for each of the models are included in the next table. The rows correspond to each of the elements in the previous list, and the columns are the values for each evaluation metric. The values in **bold** are the best achieved for each metric.
 
 
 {% include tfm_results_comparison.html %}
@@ -195,7 +199,7 @@ The results obtained for the comparison metrics are included in the next table. 
 <!-- TODO; Hay que meter las imágenes en el repositorio que si no GDrive a veces (si se entra muchas veces, no carga) -->
 <!-- TODO; Las imágenes de comparación de métricas se podrían hacer de nuevo en ggplot -->
 
-The same data of the table but plotted on a barplot is shown bellow. It can be seen that (logically) increasing the _k_ parameter in Top-k Accuracy makes the models achieve higher values of accuracy, but it doesn't seem to reflect the performance of the ordinal models with unimodal probability distributions on their output, so an intrinsic ordinal metric is required, like Quadratic Weighted Kappa. As it can be seen in the right most figure, with this metric there's a greater difference between the ordinal models and the (nominal) baseline. The best result is obtained by the model with the quadratic weighted MSE loss function followed by the one that used QWK as the loss function.
+The same data of the table but plotted on a barplot is shown bellow. We can learn many things from this plot. It can be seen that (logically) increasing the _k_ parameter in Top-k Accuracy makes the models achieve higher values of accuracy, but it doesn't seem to reflect the performance of the ordinal models with unimodal probability distributions on their output, because the <span style="color: #e87d72">baseline model</span> also achieves higher values, so an intrinsic ordinal metric is required, like Quadratic Weighted Kappa. As it can be seen in the right most figure, with this metric there's a greater difference between the ordinal models and the (nominal) <span style="color: #e87d72">baseline model</span>. The best result is obtained by the model with the quadratic weighted MSE loss function, <span style="color: #d669cf">binom_qmse</span>, followed by the one that used QWK as the loss function, <span style="color: #6c9bf6">binom_qwk</span>.
 
 <!-- =============================================================================================================== -->
 <!-- Imagen de la comparación completa en grid -->
@@ -211,7 +215,7 @@ The same data of the table but plotted on a barplot is shown bellow. It can be s
 
 <!-- TODO, añadir colores a los nombres de los modelos mencionados para facilitar la lectura. Sacar los colores con el mac y ver los códigos 0x aquí: https://htmlcolorcodes.com/ -->
 
-The differences in the scores shown in the previous comparison are easier to see in the following figure. Here, on the horizontal axis the same metrics shown previously are included, but we have continuity among models, which are shown across metrics with the same color. So, each line represents a model configuration and the dots the score for each metric. Here we can see that the <span style="color: #e87d72"> baseline model (_base_x-ent_)</span>, trained with cross entropy, under performs on all metrics with respect to the other models that have some kind of ordinality. In the non-ordinal metrics this difference is not very big, but it increases when comparing the QWK scores. The second worse model, <span style="color: #b39f33">binom (x-ent)</span>, is the model with the binomial output and without an ordinal loss function, namely, it uses cross entropy as a loss function. From this we can reason that the models that worked the best were the ones with an unimodal probability distribution and an ordinal loss function. The one that obtained the best results across all metrics is almost consistently <span style="color: #d669cf">_binom_qmse_</span>, which clearly outperforms the other ordinal models. It's worthy of mention that the inclusion of quadratic weights for the MSE loss function, <span style="color: #d669cf">_binom_qmse_</span>, significantly outperforms the linear weighted version, <span style="color: #55bcc2">_binom_mse_</span>, and that this novel introduction scores the same QWK value as <span style="color: #53b64c">_binom_emd_</span>, which previously existed in the literature.
+The differences in the scores shown in the previous comparison are easier to see in the following figure. Here, on the horizontal axis the same metrics shown previously are included, but we have continuity among models, which are shown across metrics with the same color. So, each line represents a model configuration and the dots the score for each metric. Here we can see that the <span style="color: #e87d72"> baseline model (_base_x-ent_)</span>, trained with cross entropy, under performs on all metrics with respect to the other models that have some kind of ordinality. In the non-ordinal metrics this difference is not very big, but it increases when using QWK as a metric. The second worse model, <span style="color: #b39f33">binom (x-ent)</span>, is the model with the binomial output and without an ordinal loss function, namely, it uses cross entropy as a loss function. From this we can reason that the models that worked the best were the ones with an unimodal probability distribution and an ordinal loss function. The one that obtained the best results across all metrics is almost consistently <span style="color: #d669cf">_binom_qmse_</span>, which clearly outperforms the other ordinal models. The second best model, <span style="color: #6c9bf6">binom_qwk</span>, also seem to be consistently the second best across all metrics. It's also worthy of mention that the inclusion of quadratic weights for the MSE loss function, <span style="color: #d669cf">_binom_qmse_</span>, significantly outperforms the linear weighted version, <span style="color: #55bcc2">_binom_mse_</span>, and that this version scores the same QWK value as <span style="color: #53b64c">_binom_emd_</span>, which previously existed in the literature.
 
 
 {:refdef: style="text-align: center;"}
@@ -228,16 +232,20 @@ In the following three figures the difference between evaluating the training pr
 | (a) | (b) | (c) |
 
 
+I think it's also interesting and important to mention that in figures (b) and (c), which use QWK as a metric, the model using the QWK loss function starts scoring very high values, much higher than the rest for a few epochs. This is the case because the model is being trained on the same metric that it is being evaluated on, so it kind of has a head start, but in the end it doesn't hinder the training process, as seen in the figures and tables that show the test results, where it's almost always the second best method.
+
 <!--
 	| ![](https://drive.google.com/uc?export=view&id=1n2TVU87wFced83Pk3-9INlRQXYQ8E-6R){:width="80%" :align="center"} | ![](https://drive.google.com/uc?export=view&id=1SfMVoK8ClTBImjSfZnuYOgzE3WWpaKas){:width="80%" :align="center"} | ![](https://drive.google.com/uc?export=view&id=1qi3tM9hsjYLIkH6HqHfq_aD7XDERr0kt){:width="80%" :align="center"} |
 -->
 
 ### Conclusions 
 
-With the results obtained and shown in the [last section](#experimental-results), it can be seen that when working with ordinal classification problems, using of models adapted to consider the ordinality in the data, both in it's output probability distribution and during the training process with ordinal loss functions, increases notably the performance of a baseline model that treats the problem without taking into consideration the ordinal nature. It can also be seen that using ordinal loss functions prevents overfitting during training, and the need to use the proper metrics to evaluate the problem. Using the proper evaluation metrics when using datasets with an ordinal nature is as important as using metrics to take into consideration underrepresented classes in imbalanced problems, where one may end up with an accuracy of 95% or higher while completely omitting imbalanced classes.
+With the results obtained and shown in the [last section](#experimental-results), it can be seen that when working with ordinal classification problems, using models adapted to consider the ordinality in the data, both in it's output probability distribution and during the training process with ordinal loss functions, increases notably the performance of a baseline model that treats the problem without taking into consideration the ordinal nature of the data. It can also be seen that using ordinal loss functions prevents overfitting during training, and the need to use the proper metrics to evaluate the underlying problem. Using the proper evaluation metrics when using datasets with an ordinal nature is as important as using metrics to take into consideration underrepresented classes in imbalanced problems, where one may end up with an accuracy of 95% or higher while completely omitting imbalanced classes.
 
 It is worth pointing out that this area of classification is often rarely used outside of academia, even when achieving noteworthy improvements. When treating ordinal problems as nominal classification, an important and intrinsic part of the information included in the data is being omitted, so correctly using all the available information is crucial to improve the predictions. If ordinal classification is often rarely used outside of academia, the usage with Deep Learning model is even rarer, and surely requires future work to improve on this area.
 
 ### The End
 
-That's it. Once again, congratulations and thank you if you've made it this far! Seriously!
+That's it. Thanks for making it this far!
+
+<!-- Revisado hasta aquí -->

@@ -6,7 +6,7 @@ title: MSc thesis
 
 ## MSc thesis
 
-Here is what I worked on for my MSc and my BSc thesis ([code available on GitHub](https://github.com/carlosccb/Ordinal-Clasification-with-Residual-Networks)). Both are presented here as a single thing, but in reality the work was incremental and one continued where the other left off.
+Here I show what I worked on for my MSc and my BSc thesis ([code available](https://github.com/carlosccb/Ordinal-Clasification-with-Residual-Networks)). Both are presented here as a single thing, but in reality the work was incremental and one continued where the other left off. This work was originally presented in July of 2019.
 
 In this page, although abridged, almost everything presented in my MSc thesis is included, and it's quite a lot of text. I would recommend reading (or skimming) the [abstract](#abstract) and then heading to the [experimental results](#experimental-results) and [conclusions](#conclusions) sections to get a general sense of the work.
 
@@ -55,20 +55,22 @@ __Table of contents__
 
 ### Abstract
 
-This work was a new approach for ordinal classification problems using deep learning models, based on the use of ordinal loss functions and probability density functions, which took advantage of the ordinality information that the labels hold. The method on which this approach was based uses unimodal probability distributions (based on the work of [Beckham et al.](http://proceedings.mlr.press/v70/beckham17a.html)) to transform the output distribution given by a deep neural network. Given that the model does not use the distance of the errors during the training process to modify its weights and that the ordinality is only considered in the distribution layer, we improved this approach by adding ordinal loss functions.
+This work was a new approach for ordinal classification problems using deep learning models. It is based on the use of ordinal loss functions and unimodal probability density functions. The use of unimodal probability distributions is based on the work of [Beckham et al.](http://proceedings.mlr.press/v70/beckham17a.html), and it works by transforming the output distribution given by a deep neural network into an unimodal distribution. Using this set up, the training of the model does not use the distance between classes to calculate the errors during the training process and doesn't modify the weights accordingly, so the ordinality is only considered in the distribution layer. This approach was improved by adding new ordinal loss functions which use the ordinal information that the labels hold.
 
 With this approach, we present a comparative study of the results obtained when:
-1. different ordinal loss functions are used in conjunction with unimodal probability distributions for the network output
-2. when non-ordinal loss functions are used on a baseline model
-3. when a model takes into account ordinality only with an unimodal probability function.
+1. Regular (non-ordinal) loss functions (cross entropy) are used on a baseline (non-ordinal) model
+2. A model takes into account ordinality only by using an unimodal probability functions
+3. Different ordinal loss functions are used in conjunction with unimodal probability distributions for the network output
 
-For the comparison, an ordinal dataset is considered, [Adience](https://talhassner.github.io/home/projects/Adience/Adience-data.html), which contains images of faces (all of the original pictures are in the public domain) with a label indicating a range of ages. This is the label used for training.
+For the comparison, an ordinal dataset is considered, [Adience](https://talhassner.github.io/home/projects/Adience/Adience-data.html), which contains images of faces <!-- (all of the original pictures are in the public domain) --> with a label indicating a range of ages for the person in the picture. This is the label used for training. To put it briefly, the ordinality in the labels comes from the error being greater when misclassifying a baby (_class 0_) for a grown man (_class 4_) than when misclassifying that same baby as a toddler (_class 1_); or the error being smaller when mistaking an senior (_class 5_) with an elder (_class 6_) than with a teenager (_class 3_). So in ordinal classification these greater errors are penalized with a bigger cost than smaller errors. The difference between labels is also called distance, further labels (baby vs adult) have a greater distance than closer labels (baby vs toddler). The cost of misclassification is calculated with the distance between classes.
 
-For this study we selected two loss functions previously presented in the literature: _QWK_, Quadratic Weighted Kappa, and _EMD_, Earth Mover’s Distance; and a new proposal, an ordinal loss function based on the _MSE_, Mean Squared Error. For this proposed loss function two alternatives are derived depending on the weighting of the costs, one with an absolute value weighting, named _wMSE_, meaning Weighted MSE, and another one with a quadratic weighting, _qMSE_, which stands for Quadratic Weighted MSE.
+For this study we selected two loss functions previously presented in the literature: _QWK_, Quadratic Weighted Kappa, and _EMD_, Earth Mover’s Distance; and made a new proposal, an ordinal loss function based on the _MSE_, Mean Squared Error. For this proposed loss function two alternatives are derived depending on the weighting of the costs, one with an absolute value weighting, named _wMSE_, meaning Weighted MSE, and another one with a quadratic weighting, _qMSE_, which stands for Quadratic Weighted MSE.
 
-The experimentation presented has been made on equal terms for all the configurations tested, using the same partitions of the dataset, namely, training, validation and test, and setting the seed to the same value before each of the experiments. The obtained results show that the application of ordinal loss functions improves the base results obtained in other works using the same dataset and in the baseline models used on this study. We also conclude from the results that the quadratic ponderation in the cost of misclassification improves an absolute weighting.
+The experimentation presented has been made on equal terms for all the configurations tested, using the same partitions of the dataset, namely, training, validation and test. The obtained results show that the application of ordinal loss functions improves the base results obtained in other works using the same dataset, and also considerably improves the baseline models used on this study. We also conclude from the results that the quadratic weighting in the cost of misclassification improves an absolute weighting.
 
-(If you are just looking over, I would recommend skipping to [experimental results](#experimental-results).)
+_(If you are just looking over, I would recommend skipping to [experimental results](#experimental-results).)_
+
+<!-- Revisado hasta aquí -->
 
 ### Ordinal Classification
 

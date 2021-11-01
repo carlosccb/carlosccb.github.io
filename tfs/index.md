@@ -6,9 +6,11 @@ title: MSc thesis
 
 ## MSc thesis
 
-Here is what I worked on for my MSc and my BSc thesis. Both are presented here as a continuum. The code for my BSc thesis is [available on GitHub](https://github.com/carlosccb/Ordinal-Clasification-with-Residual-Networks).
+Here is what I worked on for my MSc and my BSc thesis ([code available on GitHub](https://github.com/carlosccb/Ordinal-Clasification-with-Residual-Networks)). Both are presented here as a single thing, but in reality the work was incremental and one continued where the other left off.
 
-In this page, although abridged, almost everything present in my MSc thesis is included, and it's quite a lot of text. I would recommend reading the [abstract](#abstract) and then the [experimental results](#experimental-results) and [conclusions](#conclusions) to get a general sense of the work.
+In this page, although abridged, almost everything presented in my MSc thesis is included, and it's quite a lot of text. I would recommend reading (or skimming) the [abstract](#abstract) and then heading to the [experimental results](#experimental-results) and [conclusions](#conclusions) sections to get a general sense of the work.
+
+If you're interested and want to learn more about [ordinal classification](#ordinal-classification) and how it was treated in this particular work, then head to the that particular section. 
 
 <!-- <br><br> -->
 
@@ -65,6 +67,8 @@ For the comparison, an ordinal dataset is considered, [Adience](https://talhassn
 For this study we selected two loss functions previously presented in the literature: _QWK_, Quadratic Weighted Kappa, and _EMD_, Earth Mover’s Distance; and a new proposal, an ordinal loss function based on the _MSE_, Mean Squared Error. For this proposed loss function two alternatives are derived depending on the weighting of the costs, one with an absolute value weighting, named _wMSE_, meaning Weighted MSE, and another one with a quadratic weighting, _qMSE_, which stands for Quadratic Weighted MSE.
 
 The experimentation presented has been made on equal terms for all the configurations tested, using the same partitions of the dataset, namely, training, validation and test, and setting the seed to the same value before each of the experiments. The obtained results show that the application of ordinal loss functions improves the base results obtained in other works using the same dataset and in the baseline models used on this study. We also conclude from the results that the quadratic ponderation in the cost of misclassification improves an absolute weighting.
+
+(If you are just looking over, I would recommend skipping to [experimental results](#experimental-results).)
 
 ### Ordinal Classification
 
@@ -173,12 +177,12 @@ I'll spare you all the details from the experimental setup, the data partitions,
 
 
 For the comparison of the performance of the different methods we used a baseline model, which was a ResNet without the ordinal modifications and that treats the problem as a nominal classification problem instead of an ordinal one, and five different combinations of ordinal models. So the configurations used are:
-1. Baseline, loss: cross entropy
-2. Binomial, loss: cross entropy
-3. Binomial, loss: wMSE
-4. Binomial, loss: qMSE
-5. Binomial, loss: EMD
-6. Binomial, loss: QWK
+1. Baseline, loss: cross entropy    <!-- 232,125,114  => #e87d72 -->
+2. Binomial, loss: cross entropy    <!-- 179,159,51   => #b39f33 -->
+3. Binomial, loss: EMD              <!-- 83,182,76    => #53b64c -->
+4. Binomial, loss: wMSE             <!-- 85,188,194   => #55bcc2 -->
+5. Binomial, loss: QWK              <!-- 108,155,246  => #6c9bf6 -->
+6. Binomial, loss: qMSE             <!-- 214,105,207  => #d669cf -->
 
 The results obtained for the comparison metrics are included in the next table. The rows correspond to the each of the elements in the previous list and the columns are the values for each evaluation metric.
 
@@ -189,7 +193,7 @@ The results obtained for the comparison metrics are included in the next table. 
 <!-- TODO; Hay que meter las imágenes en el repositorio que si no GDrive a veces (si se entra muchas veces, no carga) -->
 <!-- TODO; Las imágenes de comparación de métricas se podrían hacer de nuevo en ggplot -->
 
-The same data of the table but plotted on a barplot is shown bellow. It can be seen that (logically) increasing the _k_ parameter in Top-k Accuracy makes the models achieve higher values of accuracy, but it doesn't seem to reflect the performance of the ordinal models with unimodal probability distributions on their output, so an intrinsic ordinal metric is required, like Quadratic Weighted Kappa. With this metric, there's a greater difference between the ordinal models and the (nominal) baseline. The best result is obtained by the model with the quadratic weighted MSE loss function followed by the one that used QWK as the loss function.
+The same data of the table but plotted on a barplot is shown bellow. It can be seen that (logically) increasing the _k_ parameter in Top-k Accuracy makes the models achieve higher values of accuracy, but it doesn't seem to reflect the performance of the ordinal models with unimodal probability distributions on their output, so an intrinsic ordinal metric is required, like Quadratic Weighted Kappa. As it can be seen in the right most figure, with this metric there's a greater difference between the ordinal models and the (nominal) baseline. The best result is obtained by the model with the quadratic weighted MSE loss function followed by the one that used QWK as the loss function.
 
 <!-- =============================================================================================================== -->
 <!-- Imagen de la comparación completa en grid -->
@@ -205,7 +209,7 @@ The same data of the table but plotted on a barplot is shown bellow. It can be s
 
 <!-- TODO, añadir colores a los nombres de los modelos mencionados para facilitar la lectura. Sacar los colores con el mac y ver los códigos 0x aquí: https://htmlcolorcodes.com/ -->
 
-The differences of this comparison are easier to see in the following figure. Here, on the horizontal axis the same metrics shown previously are included, but we have continuity among models, which are shown across metrics with the same color. So, each line represents a model configuration and the dots the score for each metric. Here we can see that the <span style="color: #dc7633"> baseline model</span>, trained with cross entropy (_base_x-ent_), under performs on all metrics with respect to the other models that have some kind of ordinality. In the non-ordinal metrics this difference is not very big, but it increases when comparing the QWK scores. The second worse model is the model with the binomial output and without an ordinal loss function, _binom_x-ent_. From this we can reason that the models that worked the best were the ones with an unimodal probability distribution and an ordinal loss function. The one that obtain the best results across all metrics is almost consistently _binom_qwk_, which clearly outperforms the other ordinal models. It's worthy of mention that the inclusion of quadratic weights for the MSE loss function significantly outperforms the linear weighted version, _binom_mse_, that scores the same value as _binom_emd_ on QWK.
+The differences in the scores shown in the previous comparison are easier to see in the following figure. Here, on the horizontal axis the same metrics shown previously are included, but we have continuity among models, which are shown across metrics with the same color. So, each line represents a model configuration and the dots the score for each metric. Here we can see that the <span style="color: #e87d72"> baseline model (_base_x-ent_)</span>, trained with cross entropy, under performs on all metrics with respect to the other models that have some kind of ordinality. In the non-ordinal metrics this difference is not very big, but it increases when comparing the QWK scores. The second worse model, <span style="color: #b39f33">binom (x-ent)</span>, is the model with the binomial output and without an ordinal loss function, namely, it uses cross entropy as a loss function. From this we can reason that the models that worked the best were the ones with an unimodal probability distribution and an ordinal loss function. The one that obtained the best results across all metrics is almost consistently <span style="color: #d669cf">_binom_qmse_</span>, which clearly outperforms the other ordinal models. It's worthy of mention that the inclusion of quadratic weights for the MSE loss function, <span style="color: #d669cf">_binom_qmse_</span>, significantly outperforms the linear weighted version, <span style="color: #55bcc2">_binom_mse_</span>, and that this novel introduction scores the same QWK value as <span style="color: #53b64c">_binom_emd_</span>, which previously existed in the literature.
 
 
 {:refdef: style="text-align: center;"}
@@ -214,11 +218,12 @@ The differences of this comparison are easier to see in the following figure. He
 
 
 
-In the following figure the difference between evaluating the training process with a non-ordinal and an ordinal metric can be seen. In the accuracy figure (left) the baseline model (trained with cross entropy loss) starts to score better values of Accuracy than the rest of the models early on, approximately in epoch 20. This same training, when evaluated with a ordinal metric, QWK, (central figure) paints a very different picture. The baseline model takes longer to converge than the rest of the models, and in the end appears to beat most of them, but in reality, if we watch the QWK validation plot (the one to the right) it turns out that in reality it's overtraining, as its values end as the worst in the validation partition.
+In the following three figures the difference between evaluating the training process with a non-ordinal and an ordinal metric can be seen. The first two figures, (a) and (b), show the evaluation metrics, Accuracy and QWK, during the training process, and the third one (c) shows the values for QWK on the validation partition (also during training). In the accuracy figure (a) the baseline model (trained with cross entropy loss) starts to score better values of Accuracy than the rest of the models early on, approximately in epoch 20. This same training, when evaluated with a ordinal metric, QWK (b), paints a very different picture. The baseline model takes longer to converge than the rest of the models, and in the end appears to beat most of them, but in reality, if we watch the QWK validation plot (c) it turns out that it's overfitting, as its values end as the worst in the validation partition.
 
 | Train Accuracy  | Train QWK       | Validation QWK  |
 | :-------------: | :-------------: | :-------------: |
 | ![Comparison of training accuracy](/tfs/figs/comp_train_acc.png){:width="90%" :align="center"} | ![Comparison of training QWK](/tfs/figs/comp_train_qwk.png){:width="90%" :align="center"} | ![Comparison of validation QWK](/tfs/figs/comp_val_qwk.png){:width="90%" :align="center"} |
+| (a) | (b) | (c) |
 
 
 <!--
@@ -227,7 +232,7 @@ In the following figure the difference between evaluating the training process w
 
 ### Conclusions 
 
-With the results obtained and shown in the [last section](#experimental-results), it can be seen that when working with ordinal classification problems, the usage of models adapted to account for the ordinality in the data, both in it's output probability distribution and during the training process with ordinal loss functions, increases notably the performance of a baseline model that treats the problem without taking into consideration the ordinal nature. It can also be seen that using ordinal loss functions prevents overfitting during training, and the need to use the proper metrics to evaluate the problem. Using the proper evaluation metrics when using datasets with an ordinal nature is as important as using metrics to take into consideration underrepresented classes in imbalanced problems, where one may end up with an accuracy of 95% or higher while completely omitting imbalanced classes.
+With the results obtained and shown in the [last section](#experimental-results), it can be seen that when working with ordinal classification problems, using of models adapted to consider the ordinality in the data, both in it's output probability distribution and during the training process with ordinal loss functions, increases notably the performance of a baseline model that treats the problem without taking into consideration the ordinal nature. It can also be seen that using ordinal loss functions prevents overfitting during training, and the need to use the proper metrics to evaluate the problem. Using the proper evaluation metrics when using datasets with an ordinal nature is as important as using metrics to take into consideration underrepresented classes in imbalanced problems, where one may end up with an accuracy of 95% or higher while completely omitting imbalanced classes.
 
 It is worth pointing out that this area of classification is often rarely used outside of academia, even when achieving noteworthy improvements. When treating ordinal problems as nominal classification, an important and intrinsic part of the information included in the data is being omitted, so correctly using all the available information is crucial to improve the predictions. If ordinal classification is often rarely used outside of academia, the usage with Deep Learning model is even rarer, and surely requires future work to improve on this area.
 

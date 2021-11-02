@@ -22,7 +22,7 @@ There are other open repositories, but they are related to subjects taken during
 * A [_compilers and language processors_](https://github.com/carlosccb/trabajoPL) class where we had to write our own programming language.
 
 
-As time goes by I will move some of my projects that are kind of interesting from bitbucket to github.
+As time goes by I will move some of my projects that are kind of interesting from bitbucket to github. For example, the code for my publications is right now as a private repo on bitbucket but I'd like to improve the code a little and move the repos to github.
 
 <!--
 {% for repository in site.github.public_repositories %}

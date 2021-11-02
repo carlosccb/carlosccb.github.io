@@ -16,7 +16,7 @@ During my BSc I took all the machine learning classes available, where I got a v
 
 #### Work and research experience
 
-As mentioned earlier, I started working as a research assistant in early 2018 while finishing my BSc thesis in which I used ordinal classification with a ResNet model to predict the age of people from face pictures. I then continued this work on my [MSc thesis](tfs) adding new ordinal ordinal loss functions among other improvements.
+As mentioned earlier, I started working as a research assistant in early 2018 while finishing my BSc thesis in which I used ordinal classification with a ResNet model to predict the age of people from face pictures. I then continued this work on my [MSc thesis](tfs) adding new ordinal ordinal loss functions among other improvements. You can see a summary of this work and an exposition of the results obtained and the conclusion following the link.
 
 I pursued a PhD to continue my research on Deep Learning methods. From late 2019 to late 2021 I was a PhD student at Universidad de Alcalá de Henares (UAH). During this time my main research line was to apply ML and DL models to meteorological problems for tasks such as:
 * Predicting the availability of resources and the capability for energy production in the future with resources like water stored in reservoirs

@@ -11,3 +11,5 @@ gem "webrick", "~> 1.7"
 gem "jekyll-theme-minimal", "~> 0.2.0"
 
 gem "jekyll-github-metadata", "~> 2.13"
+
+gem 'jekyll-analytics'

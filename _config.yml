@@ -20,7 +20,7 @@ timezone: Europe/Madrid
 
 plugins:
   - "jekyll-github-metadata"
-  - "jekyll-analytics"
+  #- "jekyll-analytics"
 
 #jekyll_analytics:
 #  GoogleAnalytics:         # Add, if you want to track with Google Analytics

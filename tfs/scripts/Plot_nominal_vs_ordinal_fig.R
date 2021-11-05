@@ -19,13 +19,13 @@ plot_theme <- function() {
         axis.text.x = element_blank(),
         axis.text.y = element_blank(),
         legend.title = element_blank(),#element_text(size=15),
-        legend.text = element_text(size=14),
+        legend.text = element_text(size=25),
   )
 }
 
 # Plot with 3 classes
 ggplot(df_data, aes(x=x, y=y, color=target, shape=target)) +
-  geom_point(size=2.5) +
+  geom_jitter(size=7) + #geom_point(size=3) +
   theme_classic() + # TODO: El causante de que salgan dos leyendas es theme_classic ¿?
   scale_color_manual(values=c("#00ba38", "#619bff", "#f8766d")) +
   plot_theme() +
@@ -40,7 +40,7 @@ df_data_bi <- df_data %>%
 df_data_bi$target <- recode_factor(df_data_bi$target, Healthy="healthy", "1" = "ill")
 
 ggplot(df_data_bi, aes(x=x, y=y, color=target, shape=target)) +
-  geom_point(size=2.5) +
+  geom_jitter(size=7) + #geom_point(size=3) +
   theme_classic() +
   scale_color_manual(values=c("#00ba38", "#f8766d")) +
   plot_theme() +

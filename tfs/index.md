@@ -90,9 +90,11 @@ Some examples of ordinal classification are:
 In the following figure you can see the same problem treated as a nominal and ordinal classification problem. On the left we have two classes, <span style="color:green">healthy</span>, or <span style="color:red">ill</span>. If we transform the problem adding ordinality, the we have: <span style="color:green">_healthy_</span>, and in the ill class we have degree <span style="color:blue">1</span> or <span style="color:red">2</span> indicating the severity.
 
 <!-- =============================================================================================================== -->
+
 | Nominal  | Ordinal |
 | :-------------: | :-------------: |
 | ![Nominal](/tfs/figs/nom_fig.png){:width="70%" :align="center"} | ![Ordinal](/tfs/figs/ord_fig.png){:width="70%" :align="center"} |
+
 <!-- =============================================================================================================== -->
 
 __How to treat ordinal problems__

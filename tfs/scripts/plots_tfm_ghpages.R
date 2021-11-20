@@ -106,3 +106,18 @@ ggplot(df_tfm_res_table_melted, aes(x=variable, y=value,  color=Config)) +
         legend.text=element_text(size=14))
 ggsave(file="TFM_comp_Lines.png", device="png", path=PLOTS_PATH, scale=1.5, dpi=320)#, units="px")#, width=1290, height=1080)
 
+
+ggplot(df_tfm_res_table_melted, aes(x=variable, y=value,  color=Config)) +
+  geom_line(aes(group =Config), size=1.75) +
+  geom_point(size=5) +
+  theme_bw() +
+  theme(axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.x=element_text(size=20),
+        axis.text.y=element_text(size=20),
+        legend.position="top",
+        legend.title=element_text(size=25),
+        legend.text=element_text(size=22),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),)
+ggsave(file="TFM_comp_Lines_BIG.png", device="png", path=PLOTS_PATH, scale=1.5, dpi=320)#, units="px")#, width=1290, height=1080)

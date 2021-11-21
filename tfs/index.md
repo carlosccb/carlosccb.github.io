@@ -2,6 +2,7 @@
 layout: page_centered #page
 permalink: "/tfs"
 title: MSc thesis
+rights: True
 ---
 
 ## MSc thesis

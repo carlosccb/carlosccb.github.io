@@ -12,10 +12,11 @@ Hi! I'm Carlos, and this is my website. I'm a Data Scientist. Here you can find 
 This site has been created mostly to showcase my professional profile and some projects that I've worked on, so it's mostly for work-related and professional stuff. If, by any chance, you find something interesting here, you can find my contacts under my profile picture.
 
 ## Table of contents
-1. [About me](about-me)
+1. [Portfolio](/portfolio)
 2. [Publications](publications)
 3. [MSc thesis](tfs)
 4. [Repositories](/repositories)
+5. [About me](about-me)
 
 <!---
 Para mejorar esto mirar lo que viene en:

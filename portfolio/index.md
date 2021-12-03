@@ -65,14 +65,14 @@ Here the problem at hand was trying to predict the visibility on a road that has
 
 The data was massively imbalanced and so it was crucial to treat and preprocess the data by resampling the classes. The problem was approached as both regression and classification (nominal and ordinal). Most of the classifiers and regressors used were ensemble methods (AdaBoost, GradientBoosting, RandomForest, etc).
 
-No figures are included for now just in case.
+<!-- No figures are included for now just in case. -->
 
 <!-- Figures commented just in case -->
-<!-- In the figures bellow, for the regression task the predictions by some of the regression models are shown, and for the classification task, some of the F1-scores for the test partition are shown.
+In the figures bellow: for the regression task, the predictions by some of the regression models are shown; for the classification task, the F1-scores on test are shown.
 
 | Regression | Classification |
 | :---: | :---: |
-| ![](/portfolio/figs/Regression-CompleteComparison-thick_l_v4.png){:width="100%" :align="center"} | ![](/portfolio/figs/Best_overall-F1_v4.png){:width="100%" :align="center"} | -->
+| ![](/portfolio/figs/Regression-CompleteComparison-thick_l_v4.png){:width="100%" :align="center"} | ![](/portfolio/figs/Best_overall-F1_v4.png){:width="100%" :align="center"} |
 
 
 -----------------

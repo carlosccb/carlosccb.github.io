@@ -15,7 +15,7 @@ author:
   lastfm:         'https://www.last.fm/user/carloscb'
   publications:
     water_reservoir:  'https://www.mdpi.com/2073-4441/12/6/1528'
-    for:              ''
+    fog_prediction:   'https://www.sciencedirect.com/science/article/pii/S0169809522001430'
 
 encoding: utf-8
 timezone: Europe/Madrid

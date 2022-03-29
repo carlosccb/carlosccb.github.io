@@ -12,4 +12,4 @@ Here you can find a list of my publications during my two years as a PhD student
 
 <!-- TODO: Incluir los md con la descripción de lo que se hace en cada uno de los paper. -->
 * [Analysis and Prediction of Dammed Water Level in a Hydropower Reservoir Using Machine Learning and Persistence-Based Techniques]({{ site.author.publications.water_reservoir }}) <!-- /publications/embalse) -->
-* Machine Learning Regression and Classification Methods for Fog Events Prediction: A Performance-based Study (_Manuscript_) <!-- []](/publications/fog) -->
+* [Machine Learning Regression and Classification Methods for Fog Events Prediction: A Performance-based Study]({{ site.author.publications.fog_prediction }})  <!-- []](/publications/fog) -->

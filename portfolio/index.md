@@ -59,15 +59,12 @@ For more information the full [publication is available (and open) online.]({{ s
 
 ## Machine Learning Regression and Classification Methods for Fog Events Prediction: A Performance-based Study
 
-**[(Manuscript)]** _This work is currently in the manuscript stage_.
-
 Here the problem at hand was trying to predict the visibility on a road that has to be closured many times a year due to events of very low visibility. A varied study was carried out to predict the visibility in the next 30 minutes.
 
 The data was massively imbalanced and so it was crucial to treat and preprocess the data by resampling the classes. The problem was approached as both regression and classification (nominal and ordinal). Most of the classifiers and regressors used were ensemble methods (AdaBoost, GradientBoosting, RandomForest, etc).
 
-<!-- No figures are included for now just in case. -->
+For more information the full [publication is available (and open) online.]({{ site.author.publications.fog_prediction }})
 
-<!-- Figures commented just in case -->
 In the figures bellow: for the regression task, the predictions by some of the regression models are shown; for the classification task, the F1-scores on test are shown.
 
 | Regression | Classification |
